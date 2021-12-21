@@ -175,8 +175,8 @@ void Convert(AudioConverterSettings *settings) {
         
         // Write Converted Data to output file
         CheckError(AudioFileWritePackets(settings->outputFile,
-                                         FALSE,               // Don't we need byte counts?
-                                         ioOutputDataPackets, // * settings->outputFormat.mBytesPerPacket,
+                                         FALSE,
+                                         convertedData.mBuffers[0].mDataByteSize,
                                          NULL,
                                          outputFilePacketPosition /
                                          settings->outputFormat.mBytesPerPacket,
